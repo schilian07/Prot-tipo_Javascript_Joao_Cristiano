@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documento</title>
+    <style>
+        .oculto {
+            display: none;
+        }
+        .exibir {
+            display: inline;
+        }
+    </style>
+    <script>
+        function alerta() {
+            var nome = "";
+            while (!nome) {
+                nome = prompt("Digite seu nome!");
+            }
+
+            document.getElementById('exibir').innerHTML = nome + " <span class='exibir'>!</span>";
+            document.getElementById('acessar').classList.add('oculto');
+            document.getElementById('sair').classList.remove('oculto');
+        }
+
+        function bye() {
+            alert("Até Mais");
+            document.getElementById('exibir').innerHTML = "";
+            document.getElementById('acessar').classList.remove('oculto');
+            document.getElementById('sair').classList.add('oculto');
+        }
+
+        function inicializar() {
+            document.getElementById('sair').classList.add('oculto');
+        }
+
+        window.onload = inicializar;
+    </script>
+</head>
+<body>
+    <div class="ref">
+        <h1>Boa tarde <span id="exibir"></span></h1>
+        <button id="acessar" onclick="alerta()">Acessar</button>
+        <button id="sair" class="oculto" onclick="bye()">Sair da Conta</button>
+    </div>    
+</body>
+</html>
